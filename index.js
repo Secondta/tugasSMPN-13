@@ -4,7 +4,7 @@ var http = require('http');
 http.createServer(function (req, res) {
     res.writeHead(200, { 'Content-Type': 'text/html' });
 
-    fs.readFile('navbar.html', (err, data) => {
+    fs.readFile('asset/navbar.html', (err, data) => {
         if (err) throw err
 
         res.writeHead(200, { 'Content-Type': 'text-html' })
@@ -15,28 +15,28 @@ http.createServer(function (req, res) {
     var url = req.url;
 
     if (url === '/') {
-        fs.readFile("home.html", function (err, data) {
+        fs.readFile("asset/home.html", function (err, data) {
             res.end(data);
         });
     }
     else if (url === "/visi") {
-        fs.readFile("visi.html", function (err, data) {
+        fs.readFile("asset/visi.html", function (err, data) {
             res.end(data);
         });
     }
     else if (url === "/sambutan") {
-        fs.readFile("sambutan.html", function (err, data) {
+        fs.readFile("asset/sambutan.html", function (err, data) {
             res.end(data);
         });
     }
     else if (url === '/blog') {
-        fs.readFile("blog.html", function (err, data) {
+        fs.readFile("asset/blog.html", function (err, data) {
             res.end(data);
         });
     }
     else if (url === '/perpustakaan') {
         res.writeHead(200, { 'Content-Type': 'application/pdf' });
-        fs.readFile('asset/sample.pdf', function (err, data) {
+        fs.readFile('pdf/sample.pdf', function (err, data) {
             res.end(data)
         })
     }
